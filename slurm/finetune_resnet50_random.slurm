@@ -1,13 +1,13 @@
 #!/bin/bash
 #SBATCH --job-name=finetune_resnet50_random
 #SBATCH --account=bewo-delta-gpu
-#SBATCH --partition=gpuA100x4
+#SBATCH --partition=gpuA100x4-interactive
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=64
 #SBATCH --mem=128G
-#SBATCH --time=24:00:00
+#SBATCH --time=01:00:00
 #SBATCH --output=logs/slurm/finetune_resnet50_random_%j.out
 #SBATCH --error=logs/slurm/finetune_resnet50_random_%j.err
 
@@ -19,7 +19,7 @@ export NCCL_DEBUG=INFO
 $CONDA_PYTHON -m torch.distributed.run \
   --nproc_per_node=4 \
   --master_port=23400 \
-  finetune_pruned_resnet.py \
+  scripts/finetune_pruned_resnet.py \
   --model-path output/pruned/resnet50_random.pth \
   --data-path /work/hdd/bewo/mahdi/imagenet \
   --output-dir output/finetuned/resnet50_random \

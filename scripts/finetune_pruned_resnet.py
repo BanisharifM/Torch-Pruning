@@ -35,6 +35,9 @@ def main():
                               sampler=sampler, num_workers=8, pin_memory=True)
 
     model = torch.load(args.model_path, map_location='cpu')
+    if hasattr(model, 'fc') and isinstance(model.fc, nn.Linear):
+        in_features = model.fc.in_features
+        model.fc = nn.Linear(in_features, 1000)
     model.cuda()
     model = DDP(model, device_ids=[local_rank])
 

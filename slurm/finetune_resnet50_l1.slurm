@@ -19,7 +19,7 @@ export NCCL_DEBUG=INFO
 $CONDA_PYTHON -m torch.distributed.run \
   --nproc_per_node=4 \
   --master_port=23400 \
-  finetune_pruned_resnet.py \
+  scripts/finetune_pruned_resnet.py \
   --model-path output/pruned/resnet50_l1.pth \
   --data-path /work/hdd/bewo/mahdi/imagenet \
   --output-dir output/finetuned/resnet50_l1 \
