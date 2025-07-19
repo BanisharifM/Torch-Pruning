@@ -15,7 +15,7 @@ module load cuda
 
 CONDA_PYTHON="/u/ssoma1/.conda/envs/torchprune/bin/python"
 
-$CONDA_PYTHON scirpts/prune_resnet50.py \
+$CONDA_PYTHON scripts/prune_resnet50.py \
     --data-path /work/hdd/bewo/mahdi/imagenet \
     --pruning-method random \
     --pruning-ratio 0.5 \
