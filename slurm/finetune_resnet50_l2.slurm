@@ -7,7 +7,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=32G
-#SBATCH --time=48:00:00
+#SBATCH --time=08:00:00
 #SBATCH --output=logs/slurm/finetune_resnet50_l2_%j.out
 #SBATCH --error=logs/slurm/finetune_resnet50_l2_%j.err
 
@@ -18,7 +18,7 @@ export NCCL_DEBUG=INFO
 
 $CONDA_PYTHON -m torch.distributed.run \
   --nproc_per_node=4 \
-  --master_port=23410 \
+  --master_port=23400 \
   scripts/finetune_pruned_resnet.py \
   --model-path output/pruned/resnet50_l2.pth \
   --data-path /work/hdd/bewo/mahdi/imagenet \

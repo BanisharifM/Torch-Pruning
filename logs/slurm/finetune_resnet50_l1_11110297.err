@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/u/ssoma1/mahdi/Torch-Pruning/scripts/finetune_pruned_resnet.py", line 69, in <module>
+    main()
+  File "/u/ssoma1/mahdi/Torch-Pruning/scripts/finetune_pruned_resnet.py", line 21, in main
+    dist.init_process_group(backend="nccl")
+  File "/u/ssoma1/.conda/envs/torchprune/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 83, in wrapper
+    return func(*args, **kwargs)
+  File "/u/ssoma1/.conda/envs/torchprune/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 97, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/u/ssoma1/.conda/envs/torchprune/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 1520, in init_process_group
+    store, rank, world_size = next(rendezvous_iterator)
+  File "/u/ssoma1/.conda/envs/torchprune/lib/python3.10/site-packages/torch/distributed/rendezvous.py", line 258, in _env_rendezvous_handler
+    rank = int(_get_env_or_raise("RANK"))
+  File "/u/ssoma1/.conda/envs/torchprune/lib/python3.10/site-packages/torch/distributed/rendezvous.py", line 243, in _get_env_or_raise
+    raise _env_error(env_var)
+ValueError: Error initializing torch.distributed using env:// rendezvous: environment variable RANK expected, but not set

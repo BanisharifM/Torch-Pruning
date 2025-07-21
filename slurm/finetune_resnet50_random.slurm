@@ -7,7 +7,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=32G
-#SBATCH --time=48:00:00
+#SBATCH --time=08:00:00
 #SBATCH --output=logs/slurm/finetune_resnet50_random_%j.out
 #SBATCH --error=logs/slurm/finetune_resnet50_random_%j.err
 
